@@ -17,6 +17,12 @@ import UserDashboard from "../pages/UserDashboard";
 import UserProfile from "../pages/UserProfile";
 import Agent from "../pages/Agent";
 import AddNewCar from "../pages/Addnewcar";
+import AgentProfile from "../pages/AgentProfile";
+
+import VintageList from "../pages/VintageList";
+
+
+
 
 
 
@@ -41,6 +47,8 @@ const Routers = () => {
         <Route path="/userProfile" element={<UserProfile />} />
         <Route path="/agent" element={<Agent />}/>
         <Route path="/addnew" element={<AddNewCar/>}/>
+        <Route path="/agentprofile" element={<AgentProfile/>}/>
+        <Route path="/vintagelist" element={<VintageList/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
    

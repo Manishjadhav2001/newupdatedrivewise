@@ -6,11 +6,12 @@ import Helmet from "../components/Helmet/Helmet";
 import { useParams } from "react-router-dom";
 import BookingForm from "../components/UI/BookingForm";
 import PaymentMethod from "../components/UI/PaymentMethod";
+import vintageCarData from "../assets/data/vintageCarData";
 
-const CarDetails = () => {
+const VintageCarDetails = () => {
   const { slug } = useParams();
 
-  const singleCarItem = carData.find((item) => item.carName === slug);
+  const singleCarItem = vintageCarData.find((item) => item.carName === slug);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -127,4 +128,4 @@ const CarDetails = () => {
   );
 };
 
-export default CarDetails;
+export default VintageCarDetails;
