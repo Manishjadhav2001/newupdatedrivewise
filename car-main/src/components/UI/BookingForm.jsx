@@ -1,73 +1,97 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/booking-form.css";
-import { Form, FormGroup } from "reactstrap";
+
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const BookingForm = () => {
-  const submitHandler = (event) => {
-    event.preventDefault();
+
+  const [startDate, setStartDate] = useState("")
+  const [endDate, setEndDate] = useState("")
+  const [city, setCity] = useState("")
+ // const [licenseImage, setLicenseImage] = useState("")
+  const [number, setNumber] = useState("")
+  
+
+  
+
+
+  async function SignUp(e) {
+    e.preventDefault();
+    let item = { startDate, endDate, city,number }
+   console.warn(item)
+
+    // let result = await fetch("http://localhost:7350/user/add", {
+    //   method: "POST",
+    //   body: JSON.stringify(item),
+    //   headers: {
+    //     "content-type": "application/json",
+    //     "Accept": "application/json"
+    //   }
+    // })
+
+    axios.post("http://localhost:7350/booking/add",{
+      startDate: startDate, 
+      endDate: endDate,
+      city:city,
+      licenseNo:number,
+      
+      //email:licenseImage,
+     
+    
+    }).then((res)=>{
+      console.log(res.data);
+      
+    }).catch((err)=>{
+      console.log(err);
+      
+    })
   };
   return (
-    <Form onSubmit={submitHandler}>
-      <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="text" placeholder="First Name" />
-      </FormGroup>
-      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <input type="text" placeholder="Last Name" />
-      </FormGroup>
+    <div className="main">
+    <div className="register">
+      <h2>Booking information</h2>
+      <form id="register" onSubmit={SignUp}>
+    
+      <label htmlFor="startDate">Starting Date:</label>
+      <br />
+      <input
+        type="date"
+        name="startDate"
+        id="startDate"
+        value={startDate} onChange={(e) => setStartDate(e.target.value)}  className="startDate"
+        placeholder="Select Starting Date"
+      />
+      <br /><br />
 
-      <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="email" placeholder="Email" />
-      </FormGroup>
-      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <input type="number" placeholder="Phone Number" />
-      </FormGroup>
+      <label htmlFor="endDate">Ending Date:</label>
+      <br />
+      <input
+        type="date"
+        name="endDate"
+        id="endDate"
+        value={endDate} onChange={(e) => setEndDate(e.target.value)}
+        className="endDate"
+        placeholder="Select Ending Date"
+      />
+      <br /><br />
+    
+        <label>City:</label>
+        <br />
+        <input type="text" name="city" id="city" value={city} onChange={(e) => setCity(e.target.value)} className="city"  placeholder="Enter Address" />
+        <br /><br />
 
-      <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="text" placeholder="From Address" />
-      </FormGroup>
-      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <input type="text" placeholder="To Address" />
-      </FormGroup>
+        
+        
 
-      <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <select name="" id="">
-          <option value="1 person">1 Person</option>
-          <option value="2 person">2 Person</option>
-          <option value="3 person">3 Person</option>
-          <option value="4 person">4 Person</option>
-          <option value="5+ person">5+ Person</option>
-        </select>
-      </FormGroup>
-      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <select name="" id="">
-          <option value="1 luggage">1 luggage</option>
-          <option value="2 luggage">2 luggage</option>
-          <option value="3 luggage">3 luggage</option>
-          <option value="4 luggage">4 luggage</option>
-          <option value="5+ luggage">5+ luggage</option>
-        </select>
-      </FormGroup>
-
-      <FormGroup className="booking__form d-inline-block me-4 mb-4">
-        <input type="date" placeholder="Journey Date" />
-      </FormGroup>
-      <FormGroup className="booking__form d-inline-block ms-1 mb-4">
-        <input
-          type="time"
-          placeholder="Journey Time"
-          className="time__picker"
-        />
-      </FormGroup>
-
-      <FormGroup>
-        <textarea
-          rows={5}
-          type="textarea"
-          className="textarea"
-          placeholder="Write"
-        ></textarea>
-      </FormGroup>
-    </Form>
+        <label>Licence Number:</label>
+        <br />
+        <input type="text" name="number" id="number"  value={number} onChange={(e) => setNumber(e.target.value)}className="number"  placeholder="Enter Number" />
+        <br /><br />
+        <div className="payment text-end mt-5">
+        <button type="submit"><Link to="/payment" >Reserve Now</Link></button>
+      </div>
+        </form></div></div>
   );
 };
 

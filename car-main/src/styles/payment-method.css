@@ -1,13 +1,29 @@
-.payment label {
-  font-weight: 600;
-  color: #000d6b;
+.payment {
+  text-align: end;
+  margin-top: 20px;
 }
 
 .payment button {
-  padding: 8px 15px;
-  border-radius: 5px;
-  background: #000d6b;
-  color: #fff;
+  background-color: #007bff; /* Blue color */
   border: none;
-  outline: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.payment button:hover {
+  background-color: #0056b3; /* Darker blue color */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.payment button:focus {
+  outline: none; /* Remove default outline */
+}
+
+.payment button a {
+  text-decoration: none;
+  color: white; /* Ensure text is white */
 }

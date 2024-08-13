@@ -20,6 +20,8 @@ import AddNewCar from "../pages/Addnewcar";
 import AgentProfile from "../pages/AgentProfile";
 
 import VintageList from "../pages/VintageList";
+import PaymentMethod from "../components/UI/PaymentMethod";
+import VintageCarDetails from "../pages/VintageCarDetails";
 
 
 
@@ -49,6 +51,8 @@ const Routers = () => {
         <Route path="/addnew" element={<AddNewCar/>}/>
         <Route path="/agentprofile" element={<AgentProfile/>}/>
         <Route path="/vintagelist" element={<VintageList/>}/>
+        <Route path="/payment"  element={<PaymentMethod/>}/>
+        <Route path="/vintagelist/:slug" element={<VintageCarDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
    

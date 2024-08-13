@@ -7,7 +7,7 @@ const vintageCarData = [
     brand: "Vintage Car",
     rating: 112,
     carName: "Luxury Cars Vintage Car Rental For Wedding",
-    imgUrl: "https://5.imimg.com/data5/SELLER/Default/2024/3/400886346/WL/WJ/KX/8070144/vintage-car-rental-for-wedding-500x500.jpeg",
+    imgUrl: "https://blogs.gomechanic.com/wp-content/uploads/2019/08/1936_Packard_Custom_Convertible_Victoria_-_LeBaron_-_fvl-768x512.jpg",
     model: "Model 3",
     price: "25",
     speed: "20kmpl",

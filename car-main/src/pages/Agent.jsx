@@ -7,9 +7,9 @@ import CarItem from '../components/UI/CarItem';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
 import carData from '../assets/data/carData';
-import userData from '../assets/data/userData';
+// import userData from '../assets/data/userData';
 export default function Agent() {
-  const [user, setUser] = useState(userData || { name: 'Guest' });
+  // const [user, setUser] = useState(userData || { name: 'Guest' });
   const navigate = useNavigate();
 
   const handleLogout = () => {

@@ -11,7 +11,7 @@ const RegistrationForm = () => {
   const [email, setEmail] = useState("")
   const [username, setUserName] = useState("")
   const [password, setPassword] = useState("")
-  const [role, setRole] = useState("Medium")
+  const [role, setRole] = useState("Admin")
 
   const onOptionChange = e => {
     setRole(e.target.value)

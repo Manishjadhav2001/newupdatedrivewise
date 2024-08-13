@@ -4,6 +4,7 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
 import CarItem from "../components/UI/CarItem";
 import { Link } from "react-router-dom";
+import VintagecarItem from "../components/UI/VintagecarItem";
 
 const VintageList = () => {
     return (
@@ -29,7 +30,7 @@ const VintageList = () => {
               </Col>
   
               {vintageCarData.map((item) => (
-                <CarItem item={item} key={item.id} />
+                <VintagecarItem item={item} key={item.id} />
               ))}
             </Row>
           </Container>
